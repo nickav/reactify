@@ -1,0 +1,55 @@
+{
+  "name": "React",
+  "version": "1.0.0",
+  "description": "Your go-to people for all things.",
+  "scripts": {
+    "start": "node webpack.server.js",
+    "build": "webpack",
+    "dist": "webpack --progress -p",
+    "lint": "eslint src && standard",
+    "test": "standard && webpack --bail"
+  },
+  "author": "Nick Aversano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nickaversano/goto/issues"
+  },
+  "homepage": "https://github.com/nickaversano/goto",
+  "devDependencies": {
+    "autoprefixer": "^6.5.1",
+    "babel-core": "^6.0.20",
+    "babel-eslint": "^4.1.3",
+    "babel-loader": "^6.0.1",
+    "babel-preset-es2015": "^6.0.15",
+    "babel-preset-react": "^6.0.15",
+    "babel-preset-stage-0": "^6.0.15",
+    "browser-sync": "^2.17.2",
+    "css-loader": "^0.25.0",
+    "eslint": "^1.10.3",
+    "eslint-plugin-react": "^3.6.2",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.4",
+    "json-loader": "^0.5.4",
+    "node-sass": "^3.11.0",
+    "postcss-loader": "^1.1.0",
+    "react-hot-loader": "^1.3.0",
+    "sass-loader": "^4.0.2",
+    "standard": "^8.5.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-addons-css-transition-group": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.8.1",
+    "redux": "^3.6.0",
+    "redux-devtools": "^3.3.1",
+    "redux-thunk": "^2.1.0",
+    "whatwg-fetch": "^1.0.0"
+  }
+}
