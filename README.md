@@ -5,13 +5,12 @@ Reactify
 
 ## Features
 
-- Install the project in just two commands (see "Developing" below).
-- Use [React][react] with [React hotloader][react-hotloader] to write our single-page app.
-- Use [Redux][redux], [React Router][react-router] and [fetch][fetch]
-- Use [SCSS][scss] to keep our CSS organized into logical components.
-- Use [Autoprefixer][autoprefixer] to automatically insert browser prefixes where necessary to handle cross browser compatibility.
-- Use [Webpack][webpack] to automatically launch a development server, and automatically reload the page whenever we change things.
-- Use [Standard][standard] JavaScript code style
+- [React][react] with [React hotloader][react-hotloader] to write our single-page app.
+- [Redux][redux], [React Router][react-router] and [fetch][fetch].
+- [SCSS][scss] to keep our CSS organized into logical components.
+- [Autoprefixer][autoprefixer] to automatically insert browser prefixes where necessary to handle cross browser compatibility.
+- [Webpack][webpack] to launch a development server, and automatically reload the page whenever we change things.
+- [Standard][standard] JavaScript code style
 
 All with one command from the terminal:
 
@@ -33,15 +32,6 @@ npm install
 npm start
 ```
 
-## Reminders
-
-If you want to use this repo for your next project, make sure to make the following changes:
-
-1. Edit `config.json`, filling in the HTML metadata associated with your site.
-2. Edit `package.json` providing a `name`, `version`, `description`, `license`, and `repository.url`.
-3. Remove the `.git` folder, so that you start from a fresh commit history.
-4. Edit `LICENSE.md` and `README.md` files.
-
 ## Structure
 
 ```bash
@@ -50,11 +40,21 @@ If you want to use this repo for your next project, make sure to make the follow
 ├── dist/             # Webpack builds the static site into this directory
 ├── package.json      # Dependencies
 └── src/              # All source code
+    ├── entry.js      # Webpack entry point
     ├── font/         # Font files
     ├── img/          # Images and SVGs
     ├── js/           # Javascript libraries and scripts
     ├── sass/         # Stylesheets
 ```
+
+## Reminders
+
+If you want to use this repo for your next project, make sure to make the following changes:
+
+1. Edit `config.json`, filling in the HTML metadata associated with your site.
+2. Edit `package.json` providing a `name`, `version`, `description`, `license`, and `repository.url`.
+3. Remove the `.git` folder, so that you start from a fresh commit history.
+4. Edit `LICENSE.md` and `README.md` files.
 
 [autoprefixer]: https://css-tricks.com/autoprefixer/
 [fetch]: https://github.com/github/fetch

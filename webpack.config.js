@@ -1,6 +1,7 @@
 const autoprefixer = require('autoprefixer')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const path = require('path')
+const StringReplacePlugin = require('string-replace-webpack-plugin')
 const webpack = require('webpack')
 
 const sassExtractor = new ExtractTextPlugin('[name].css')
@@ -21,6 +22,22 @@ const sassLoaders = [
   'sass-loader?sourceMap&indentedSyntax=sass&includePaths[]=' + srcPath
 ]
 
+const evalDoubleBracesLoader = (context) => {
+  for (var key in context) {
+    var value = context[key]
+    eval('var ' + key + ' = ' + JSON.stringify(value))
+  }
+
+  return StringReplacePlugin.replace({
+    replacements: [{
+      pattern: /{{\s(.*)\s}}/g,
+      replacement: function(match, p1, offset, string) {
+        return eval(p1)
+      }
+    }]
+  })
+}
+
 module.exports = {
   devtool: isProd ? '' : 'cheap-module-source-map',
   entry: {
@@ -35,6 +52,7 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new StringReplacePlugin(),
     sassExtractor,
     htmlExtractor
   ],
@@ -61,6 +79,10 @@ module.exports = {
       {
         test: /\.(png|otf|eot|svg|ttf|woff2?)(\?.*)?$/,
         loader: 'url?limit=8192&name=[path][name].[ext]&context=./src'
+      },
+      {
+        test: /index\.html/,
+        loader: evalDoubleBracesLoader(require('./config.json'))
       }
     ]
   },
