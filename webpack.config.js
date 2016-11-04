@@ -81,7 +81,7 @@ module.exports = {
         loader: 'url?limit=8192&name=[path][name].[ext]&context=./src'
       },
       {
-        test: /index\.html/,
+        test: /index\.html$/,
         loader: evalDoubleBracesLoader(require('./config.json'))
       }
     ]

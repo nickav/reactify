@@ -1,7 +1,8 @@
 Reactify
 ========================================
 
-#### Easy way to get up and running with a single page react app
+#### _Because web development doesn't need to be a pain._
+Simple single-page React app. Inspired by Minimill's [project template][project-template].
 
 ## Features
 
@@ -20,7 +21,7 @@ npm start
 
 ## Setup
 
-Install [npm][npm-install].
+Install [npm][npm-install]. Then run:
 
 ```bash
 npm install
@@ -61,6 +62,7 @@ If you want to use this repo for your next project, make sure to make the follow
 [handlebars]: http://handlebarsjs.com/
 [htmlmin]: https://github.com/kangax/html-minifier
 [imagemin]: https://github.com/imagemin/imagemin
+[project-template]: https://github.com/minimill/project-template
 [react]: https://facebook.github.io/react/
 [react-router]: https://github.com/ReactTraining/react-router
 [redux]: http://redux.js.org/
