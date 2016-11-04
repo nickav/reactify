@@ -1,7 +1,7 @@
 {
-  "name": "React",
+  "name": "Reactify",
   "version": "1.0.0",
-  "description": "Your go-to people for all things.",
+  "description": "Single-page React app template.",
   "scripts": {
     "start": "node webpack.server.js",
     "build": "webpack",
@@ -12,9 +12,9 @@
   "author": "Nick Aversano",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nickaversano/goto/issues"
+    "url": "https://github.com/nickaversano/reactify/issues"
   },
-  "homepage": "https://github.com/nickaversano/goto",
+  "homepage": "https://github.com/nickaversano/reactify",
   "devDependencies": {
     "autoprefixer": "^6.5.1",
     "babel-core": "^6.0.20",
