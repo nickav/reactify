@@ -6,7 +6,6 @@ var spawn = require('child_process').spawn
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   contentBase: './dist',
-  hot: true,
   historyApiFallback: true,
   stats: { colors: true, errorDetails: true },
   proxy: {
