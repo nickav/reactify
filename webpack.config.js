@@ -16,6 +16,7 @@ console.log(`Packaging for ${(isProd ? 'production' : 'dev')}...`)
 const entries = isProd ? [] : [
   'webpack-dev-server/client?http://localhost:3001/',
   'webpack/hot/only-dev-server',
+  'react-hot-loader/patch'
 ]
 
 const sassLoaders = [
@@ -36,7 +37,6 @@ const plugins = isProd ? [
     }
   })
 ] : [
-    new webpack.HotModuleReplacementPlugin(),
 ]
 
 const evalDoubleBracesLoader = (context) => {
@@ -76,7 +76,7 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['react-hot', 'babel'],
+        loaders: isProd ? ['babel'] : ['react-hot-loader/webpack', 'babel'],
         exclude: /node_modules/,
         include: srcPath
       },

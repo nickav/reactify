@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Single-page React app template.",
   "scripts": {
-    "start": "node webpack.server.js",
+    "start": "webpack-dev-server --port=3001 --config webpack.config.js --hot --colors --content-base=dist/ --public-path=/",
     "build": "webpack",
     "dist": "NODE_ENV=production webpack --progress -p",
     "lint": "eslint src && standard",
@@ -32,7 +32,7 @@
     "json-loader": "^0.5.4",
     "node-sass": "^3.11.0",
     "postcss-loader": "^1.1.0",
-    "react-hot-loader": "^1.3.0",
+    "react-hot-loader": "3.0.0-beta.6",
     "sass-loader": "^4.0.2",
     "standard": "^8.5.0",
     "string-replace-webpack-plugin": "0.0.4",
