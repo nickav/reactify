@@ -4,8 +4,7 @@
   "description": "Single-page React app template.",
   "scripts": {
     "start": "webpack-dev-server --port=3001 --config webpack.config.js --hot --colors --content-base=dist/ --public-path=/",
-    "build": "webpack",
-    "dist": "NODE_ENV=production webpack --progress -p",
+    "dist": "NODE_ENV=production webpack --progress -p --config webpack.config.js",
     "lint": "eslint src && standard",
     "test": "standard && webpack --bail"
   },

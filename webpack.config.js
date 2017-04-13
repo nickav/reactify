@@ -9,6 +9,7 @@ const htmlExtractor = new ExtractTextPlugin('html', '[name].html')
 
 const isProd = process.env.NODE_ENV == 'production'
 const srcPath = path.join(__dirname, 'src')
+const jsRootPath = path.join(__dirname, 'src', 'js')
 const destPath = path.join(__dirname, 'dist')
 
 console.log(`Packaging for ${(isProd ? 'production' : 'dev')}...`)
@@ -109,6 +110,6 @@ module.exports = {
   ],
   resolve: {
     extensions: ['', '.js', '.json', '.scss'],
-    root: [srcPath]
+    root: [jsRootPath]
   }
 }
