@@ -7,7 +7,7 @@ const webpack = require('webpack')
 const sassExtractor = new ExtractTextPlugin('[name].css')
 const htmlExtractor = new ExtractTextPlugin('html', '[name].html')
 
-const isProd = process.env.NODE_ENV == 'production'
+const isProd = process.env.NODE_ENV === 'production'
 const srcPath = path.join(__dirname, 'src')
 const jsRootPath = path.join(__dirname, 'src', 'js')
 const destPath = path.join(__dirname, 'dist')

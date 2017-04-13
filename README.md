@@ -6,8 +6,8 @@ Simple single-page React app. Inspired by Minimill's [project template][project-
 
 ## Features
 
-- [React][react] with [React hotloader][react-hotloader] to write our single-page app.
-- [Redux][redux], [React Router][react-router] and [fetch][fetch].
+- [React][react] with [React Hotloader][react-hotloader] to write our single-page app.
+- [Redux][redux], [React Router][react-router] and [axios][axios].
 - [SCSS][scss] to keep our CSS organized into logical components.
 - [Autoprefixer][autoprefixer] to automatically insert browser prefixes where necessary to handle cross browser compatibility.
 - [Webpack][webpack] to launch a development server, and automatically reload the page whenever we change things.
@@ -21,31 +21,48 @@ npm start
 
 ## Setup
 
-Install [npm][npm-install]. Then run:
+Install [yarn][yarn-install]. Then run:
 
 ```bash
-npm install
+yarn
 ```
 
 ## Developing
 
+Keep this running in the background:
+
 ```bash
-npm start
+yarn start
+```
+
+## Testing
+
+```bash
+yarn lint
+```
+
+## Publishing
+
+```bash
+yarn dist
 ```
 
 ## Structure
 
 ```bash
-├── config.json       # site configuration variables that get injected into index.html
-├── README.md         # This file
-├── dist/             # Webpack builds the static site into this directory
-├── package.json      # Dependencies
-└── src/              # All source code
-    ├── entry.js      # Webpack entry point
-    ├── font/         # Font files
-    ├── img/          # Images and SVGs
-    ├── js/           # Javascript libraries and scripts
-    ├── sass/         # Stylesheets
+├── config.json          # site config vars that get injected into index.html
+├── README.md            # This file
+├── dist/                # Webpack builds the static site into this directory
+├── package.json         # Dependencies
+└── src/                 # All source code
+    ├── entry.js         # Webpack entry point
+    ├── font/            # Font files
+    ├── img/             # Images and SVGs
+    └── js/              # Javascript libraries and scripts
+        ├── components/  # React components
+        ├── helpers/     # Helper files
+        ├── store/       # Redux logic
+    ├── sass/            # Stylesheets
 ```
 
 ## Reminders
@@ -58,7 +75,7 @@ If you want to use this repo for your next project, make sure to make the follow
 4. Edit `LICENSE.md` and `README.md` files.
 
 [autoprefixer]: https://css-tricks.com/autoprefixer/
-[fetch]: https://github.com/github/fetch
+[axios]: https://github.com/mzabriskie/axios
 [handlebars]: http://handlebarsjs.com/
 [htmlmin]: https://github.com/kangax/html-minifier
 [imagemin]: https://github.com/imagemin/imagemin
@@ -67,7 +84,7 @@ If you want to use this repo for your next project, make sure to make the follow
 [react-router]: https://github.com/ReactTraining/react-router
 [redux]: http://redux.js.org/
 [react-hotloader]: https://github.com/gaearon/react-hot-boilerplate
-[npm-install]: https://nodejs.org/en/download/
 [scss]: http://sass-lang.com/
 [standard]: http://standardjs.com/
 [webpack]: https://webpack.github.io/
+[yarn-install]: https://yarnpkg.com/lang/en/docs/install/

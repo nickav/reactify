@@ -8,10 +8,10 @@ const $ = axios.create({
   }
 })
 
-const $_get = $.get
+const get = $.get
 $.get = (url, data, config) => {
   url += '?' + queryString.stringify(data, { arrayFormat: 'bracket' })
-  return $_get(url, config)
+  return get(url, config)
 }
 
 export default $
