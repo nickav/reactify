@@ -12,13 +12,15 @@ const srcPath = path.join(__dirname, 'src')
 const jsRootPath = path.join(__dirname, 'src', 'js')
 const destPath = path.join(__dirname, 'dist')
 
-console.log(`Packaging for ${(isProd ? 'production' : 'dev')}...`)
+console.log(`Packaging for ${isProd ? 'production' : 'dev'}...`)
 
-const entries = isProd ? [] : [
-  'webpack-dev-server/client?http://localhost:3001/',
-  'webpack/hot/only-dev-server',
-  'react-hot-loader/patch'
-]
+const entries = isProd
+  ? []
+  : [
+      'webpack-dev-server/client?http://localhost:3001/',
+      'webpack/hot/only-dev-server',
+      'react-hot-loader/patch'
+    ]
 
 const sassLoaders = [
   'css-loader?sourceMap',
@@ -26,42 +28,43 @@ const sassLoaders = [
   'sass-loader?sourceMap&indentedSyntax=sass&includePaths[]=' + srcPath
 ]
 
-const plugins = isProd ? [
-  new webpack.DefinePlugin({
-    'process.env':{
-      'NODE_ENV': JSON.stringify('production')
-    }
-  }),
-  new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: true
-    }
-  })
-] : [
-]
+const plugins = isProd
+  ? [
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify('production')
+        }
+      }),
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: true
+        }
+      })
+    ]
+  : []
 
-const evalDoubleBracesLoader = (context) => {
+const evalDoubleBracesLoader = context => {
   for (var key in context) {
     var value = context[key]
     eval('var ' + key + ' = ' + JSON.stringify(value))
   }
 
   return StringReplacePlugin.replace({
-    replacements: [{
-      pattern: /{{\s(.*)\s}}/g,
-      replacement: function(match, p1, offset, string) {
-        return eval(p1)
+    replacements: [
+      {
+        pattern: /{{\s(.*)\s}}/g,
+        replacement: function(match, p1, offset, string) {
+          return eval(p1)
+        }
       }
-    }]
+    ]
   })
 }
 
 module.exports = {
   devtool: isProd ? '' : 'cheap-module-source-map',
   entry: {
-    index: entries.concat([
-      './src/entry.js'
-    ])
+    index: entries.concat(['./src/entry.js'])
   },
   output: {
     path: destPath,

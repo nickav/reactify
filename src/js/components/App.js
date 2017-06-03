@@ -7,7 +7,7 @@ class App extends React.Component {
   render() {
     return (
       <Router history={browserHistory}>
-        <Route path='/' component={WelcomePage} />
+        <Route path="/" component={WelcomePage} />
       </Router>
     )
   }

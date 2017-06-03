@@ -16,7 +16,7 @@ Simple single-page React app. Inspired by Minimill's [project template][project-
 All with one command from the terminal:
 
 ```bash
-npm start
+yarn start
 ```
 
 ## Setup
@@ -72,7 +72,7 @@ If you want to use this repo for your next project, make sure to make the follow
 1. Edit `config.json`, filling in the HTML metadata associated with your site.
 2. Edit `package.json` providing a `name`, `version`, `description`, `license`, and `repository.url`.
 3. Remove the `.git` folder, so that you start from a fresh commit history.
-4. Edit `LICENSE.md` and `README.md` files.
+4. Edit `LICENSE` and `README.md` files.
 
 [autoprefixer]: https://css-tricks.com/autoprefixer/
 [axios]: https://github.com/mzabriskie/axios
