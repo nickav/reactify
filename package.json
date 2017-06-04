@@ -2,10 +2,20 @@
   "name": "Reactify",
   "version": "1.0.0",
   "description": "Single-page React app template.",
+  "meta": {
+    "facebook_image": "",
+    "twitter_image": "",
+    "image": "",
+    "twitter_handle": "",
+    "domain": "",
+    "url": "",
+    "google_analytics_id": "",
+    "theme_color": ""
+  },
   "scripts": {
-    "dist": "NODE_ENV=production webpack --progress -p --config webpack.config.js",
+    "dist": "NODE_ENV=production webpack --progress -p --config config/webpack.config.prod.js",
     "format": "node_modules/.bin/prettier --single-quote --no-semi --write $(git ls-files | grep '\\.js$' | tr '\n' ' ')",
-    "start": "webpack-dev-server --port=3001 --config webpack.config.js --hot --colors --content-base=dist/ --public-path=/"
+    "start": "NODE_ENV=development webpack-dev-server --port=3000 --config config/webpack.config.dev.js"
   },
   "author": "Nick Aversano",
   "license": "MIT",
@@ -14,38 +24,54 @@
   },
   "homepage": "https://github.com/nickaversano/reactify",
   "devDependencies": {
-    "autoprefixer": "^6.5.1",
-    "babel-core": "^6.0.20",
-    "babel-eslint": "^4.1.3",
-    "babel-loader": "^6.0.1",
-    "babel-preset-es2015": "^6.0.15",
-    "babel-preset-react": "^6.0.15",
-    "babel-preset-stage-0": "^6.0.15",
-    "css-loader": "^0.25.0",
+    "autoprefixer": "^6.7.2",
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "6.2.10",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react-app": "^3.0.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-runtime": "^6.23.0",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.19.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1",
     "extract-text-webpack-plugin": "^1.0.1",
-    "file-loader": "^0.9.0",
-    "html-loader": "^0.4.4",
+    "file-loader": "^0.10.0",
+    "html-webpack-plugin": "^2.28.0",
     "json-loader": "^0.5.4",
-    "node-sass": "^3.11.0",
-    "postcss-loader": "^1.1.0",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^1.2.2",
     "prettier": "^1.4.2",
-    "react-hot-loader": "3.0.0-beta.6",
-    "sass-loader": "^4.0.2",
+    "react-dev-utils": "^3.0.0",
+    "react-hot-loader": "next",
+    "sass-loader": "^6.0.5",
     "string-replace-webpack-plugin": "0.0.4",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.2",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "webpack-manifest-plugin": "1.1.0"
   },
   "dependencies": {
     "axios": "^0.16.1",
+    "classnames": "^2.2.5",
     "query-string": "^4.3.2",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "react-redux": "^4.4.5",
-    "react-router": "^2.8.1",
     "redux": "^3.6.0",
     "redux-devtools": "^3.3.1",
     "redux-thunk": "^2.1.0"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   }
 }

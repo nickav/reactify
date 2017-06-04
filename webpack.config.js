@@ -10,6 +10,7 @@ const htmlExtractor = new ExtractTextPlugin('html', '[name].html')
 const isProd = process.env.NODE_ENV === 'production'
 const srcPath = path.join(__dirname, 'src')
 const jsRootPath = path.join(__dirname, 'src', 'js')
+const sassHelpersPath = path.join(__dirname, 'src', 'sass', 'helpers')
 const destPath = path.join(__dirname, 'dist')
 
 console.log(`Packaging for ${isProd ? 'production' : 'dev'}...`)
@@ -25,7 +26,7 @@ const entries = isProd
 const sassLoaders = [
   'css-loader?sourceMap',
   'postcss-loader',
-  'sass-loader?sourceMap&indentedSyntax=sass&includePaths[]=' + srcPath
+  'sass-loader?sourceMap&indentedSyntax=sass&includePaths[]=' + sassHelpersPath
 ]
 
 const plugins = isProd
@@ -112,6 +113,9 @@ module.exports = {
     })
   ],
   resolve: {
+    alias: {
+      '~': jsRootPath
+    },
     extensions: ['', '.js', '.json', '.scss'],
     root: [jsRootPath]
   }
