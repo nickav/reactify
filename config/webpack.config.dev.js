@@ -1,12 +1,13 @@
 'use strict';
 
+var fs = require('fs');
 var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+var Handlebars = require('handlebars');
 var getClientEnvironment = require('./env');
 var paths = require('./paths');
-
+var packageConfig = require('../package.json')
 
 
 // Webpack uses `publicPath` to determine where the app is being served from.
@@ -158,15 +159,13 @@ module.exports = {
     ];
   },
   plugins: [
-    // Makes some environment variables available in index.html.
-    // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
-    // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    // In development, this will be an empty string.
-    new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       inject: true,
-      template: paths.appHtml,
+      templateContent: function(templateParams, compilation, callback) {
+        let source = fs.readFileSync(paths.appHtml, 'utf8')
+        return Handlebars.compile(source)(packageConfig)
+      }
     }),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.

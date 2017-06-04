@@ -2,27 +2,27 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>{{ meta.title }}</title>
+  <title>{{ name }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="{{ meta.description }}" />
+  <meta name="description" content="{{ description }}" />
   <meta name="robots" content="NOODP, index, follow" />
-  <meta itemprop="name" content="{{ meta.title }}">
-  <meta itemprop="description" content="{{ meta.description }}">
+  <meta itemprop="name" content="{{ name }}">
+  <meta itemprop="description" content="{{ description }}">
   <meta itemprop="image" content="{{ meta.image }}">
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="{{ meta.twitter_handle }}">
-  <meta name="twitter:title" content="{{ meta.title }}">
-  <meta name="twitter:description" content="{{ meta.description }}">
+  <meta name="twitter:title" content="{{ name }}">
+  <meta name="twitter:description" content="{{ description }}">
   <meta name="twitter:creator" content="{{ meta.twitter_handle }}">
   <meta name="twitter:image:src" content="{{ meta.twitter_image }}">
   <meta name="twitter:domain" content="{{ meta.domain }}">
   <!-- Open Graph data (Facebook) -->
-  <meta property="og:title" content="{{ meta.title }}" />
+  <meta property="og:title" content="{{ name }}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{{ meta.url }}/" />
   <meta property="og:image" content="{{ meta.facebook_image }}" />
-  <meta property="og:description" content="{{ meta.description }}" />
+  <meta property="og:description" content="{{ description }}" />
   <!-- Apple Icons -->
   <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/img/favicon/apple-touch-icon-57x57.png" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/favicon/apple-touch-icon-114x114.png" />
@@ -39,17 +39,16 @@
   <link rel="icon" type="image/png" href="/img/favicon/favicon-16x16.png" sizes="16x16" />
   <link rel="icon" type="image/png" href="/img/favicon/favicon-128.png" sizes="128x128" />
   <!-- Microsoft Metadata -->
-  <meta name="application-name" content="{{ meta.title }}"/>
+  <meta name="application-name" content="{{ name }}"/>
   <meta name="msapplication-TileColor" content="{{ meta.theme_color }}" />
   <meta name="msapplication-TileImage" content="/img/favicon/mstile-144x144.png" />
   <meta name="msapplication-square70x70logo" content="/img/favicon/mstile-70x70.png" />
   <meta name="msapplication-square150x150logo" content="/img/favicon/mstile-150x150.png" />
   <meta name="msapplication-wide310x150logo" content="/img/favicon/mstile-310x150.png" />
   <meta name="msapplication-square310x310logo" content="/img/favicon/mstile-310x310.png" />
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
   <!-- Chrome Theme Color -->
   <meta name="theme-color" content="{{ meta.theme_color }}">
+  {{#if meta.google_analytics_id }}
   <!-- Google Analytics -->
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -59,6 +58,7 @@
     ga('create', '{{ meta.google_analytics_id }}', 'auto');
     ga('send', 'pageview');
   </script>
+  {{/if }}
 </head>
 <body>
   <div id="app"></div>
