@@ -1,0 +1,19 @@
+@import 'devices';
+@import 'mixins';
+
+$content-width: 58.75rem;
+
+.content {
+  @include clearfix;
+  margin: 0 auto;
+  max-width: $content-width;
+  padding: 0 0.625rem;
+  width: 90%;
+}
+
+@media screen and (max-width: $phone-landscape-max) {
+  .content {
+    padding: 0;
+    width: 100%;
+  }
+}

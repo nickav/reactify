@@ -35,14 +35,16 @@ Keep this running in the background:
 yarn start
 ```
 
-## Testing
+## Formatting
 
+Auto format your code:
 ```bash
-yarn lint
+yarn format
 ```
 
 ## Publishing
 
+Create a production build of the app:
 ```bash
 yarn dist
 ```
@@ -52,7 +54,7 @@ yarn dist
 ```bash
 ├── config.json          # site config vars that get injected into index.html
 ├── README.md            # This file
-├── dist/                # Webpack builds the static site into this directory
+├── build/               # Webpack builds the static site into this directory
 ├── package.json         # Dependencies
 └── src/                 # All source code
     ├── entry.js         # Webpack entry point

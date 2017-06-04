@@ -1,0 +1,44 @@
+@import 'mixins';
+@import 'colors';
+
+// Font weights
+$extra-bold: 800;
+$bold: 700;
+$medium: 500;
+$regular: 400;
+$light: 300;
+
+$header-font: sans-serif;
+$base-font: sans-serif;
+
+%h1, %h2, %h3, %h4 {
+  font-family: $header-font;
+  font-weight: $regular;
+  letter-spacing: 0.5px;
+}
+
+%h1 {
+  font-size: 2rem;
+}
+
+%h2 {
+  font-size: 1.75rem;
+}
+
+%h3 {
+  font-size: 1.5rem;
+}
+
+%h4 {
+  font-size: 1.25rem;
+}
+
+%h5 {
+  font-size: 1rem;
+}
+
+%text {
+  font-size: 1rem;
+  font-family: $base-font;
+  letter-spacing: 0.5px;
+}

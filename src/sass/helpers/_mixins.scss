@@ -1,0 +1,62 @@
+@mixin clearfix {
+  &:after {
+    clear: both;
+    content: ' ';
+    display: block;
+  }
+}
+
+/** Convert px to rem. */
+@function rem($size) {
+  @return ($size / 16px) + rem;
+}
+
+@mixin border-right-radius($size) {
+  border-top-right-radius: $size;
+  border-bottom-right-radius: $size;
+}
+
+@mixin border-left-radius($size) {
+  border-top-left-radius: $size;
+  border-bottom-left-radius: $size;
+}
+
+@mixin border-top-radius($size) {
+  border-top-left-radius: $size;
+  border-top-right-radius: $size;
+}
+
+@mixin border-bottom-radius($size) {
+  border-bottom-left-radius: $size;
+  border-bottom-right-radius: $size;
+}
+
+/** Gross hack to allow opacity to show through border */
+@mixin border-opacity-hack() {
+  -webkit-background-clip: content-box; /* for Safari */
+  background-clip: content-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+}
+
+/** Element must have a width and a height. */
+@mixin absolute-center() {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin size($width, $height: null) {
+  width: $width;
+  @if $height {
+    height: $height;
+  } @else {
+    height: $width;
+  }
+}
+
+@mixin circle($radius) {
+  @include size($radius);
+  border-radius: 50%;
+}

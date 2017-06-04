@@ -141,7 +141,7 @@ module.exports = {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(
           'style',
-          `css?sourceMap&importLoaders=1!sass?sourceMap&includePaths[]=${paths.appSrc + '/style/helpers'}!postcss`,
+          `css?sourceMap&importLoaders=1!sass?sourceMap&includePaths[]=${paths.appSass}/helpers!postcss`
           extractTextPluginOptions
         )
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
